@@ -2,7 +2,7 @@
 # test_varstep.py
 #
 
-from ceem4ln.systems.lag_doublepen import LagrangianDoublePendulum
+from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 import torch
 import numpy as np
 

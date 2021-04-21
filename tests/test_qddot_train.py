@@ -2,9 +2,9 @@
 # test_qddot_train.py
 #
 
-from ceem4ln.utils import qqdot_to_q
-from ceem4ln.smm import StructuredMechanicalModel
-from ceem4ln.systems.lag_doublepen import LagrangianDoublePendulum
+from delsmm.utils import qqdot_to_q
+from delsmm.smm import StructuredMechanicalModel
+from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 import torch
 import numpy as np
 

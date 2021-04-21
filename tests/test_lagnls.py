@@ -6,8 +6,8 @@ from ceem.dynamics import *
 from ceem.smoother import *
 from ceem import utils
 
-from ceem4ln.lagcrit import DELCriterion
-from ceem4ln.lagsys import BasicLagrangianSystem
+from delsmm.lagcrit import DELCriterion
+from delsmm.lagsys import BasicLagrangianSystem
 
 
 def test_smoother():

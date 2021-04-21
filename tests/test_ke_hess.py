@@ -1,9 +1,9 @@
 import torch
-from ceem4ln.lagsys import BasicLagrangianSystem, AbstractLagrangianSystem
-from ceem4ln.smm import StructuredMechanicalModel
+from delsmm.lagsys import BasicLagrangianSystem, AbstractLagrangianSystem
+from delsmm.smm import StructuredMechanicalModel
 
 
-from ceem4ln.utils import parameter_grads_to_vector
+from delsmm.utils import parameter_grads_to_vector
 
 def test():
 

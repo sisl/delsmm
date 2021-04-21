@@ -2,8 +2,8 @@
 # test_qqdot_to_q.py
 #
 
-from ceem4ln.utils import qqdot_to_q
-from ceem4ln.systems.lag_doublepen import LagrangianDoublePendulum
+from delsmm.utils import qqdot_to_q
+from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 import torch
 import numpy as np
 

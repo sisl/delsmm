@@ -11,15 +11,15 @@ import matplotlib.pyplot as plt
 from ceem.opt_criteria import *
 from ceem.ceem import CEEM
 from ceem import logger
-from ceem4ln.lagcrit import DELCriterion
-from ceem4ln.lagsys import BasicLagrangianSystem
-from ceem4ln.systems.lag_doublepen import LagrangianDoublePendulum
+from delsmm.lagcrit import DELCriterion
+from delsmm.lagsys import BasicLagrangianSystem
+from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 import os
 import click
 from time import time
 import numpy as np
 
-from ceem4ln.utils import smooth_and_diff
+from delsmm.utils import smooth_and_diff
 
 opj = os.path.join
 

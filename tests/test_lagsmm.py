@@ -1,6 +1,6 @@
 import torch
-from ceem4ln.lagsys import BasicLagrangianSystem
-from ceem4ln.smm import StructuredMechanicalModel, AltStructuredMechanicalModel, ForcedSMM
+from delsmm.lagsys import BasicLagrangianSystem
+from delsmm.smm import StructuredMechanicalModel, AltStructuredMechanicalModel, ForcedSMM
 
 def test():
 
