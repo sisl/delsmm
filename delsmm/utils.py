@@ -188,7 +188,7 @@ def smooth_and_diff(x, dt, nders=2, **kwargs):
     return retvals
 
 
-def kalman_smooth_and_diff(x, dt, nders=2, em_Q=True):
+def kalman_smooth_and_diff(x, dt, nders=2, em_Q=False):
     """
     Smooth a set of timeseries and differentiate them.
     Args:

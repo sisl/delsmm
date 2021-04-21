@@ -7,7 +7,7 @@ from ceem import utils
 from torch.utils.data import TensorDataset
 import numpy as np
 
-from ceem4ln.systems.lag_doublepen import LagrangianDoublePendulum
+from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 
 from tqdm import tqdm
 import matplotlib.pyplot as plt
