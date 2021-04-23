@@ -2,23 +2,11 @@
 # test_smooth_and_diff.py
 #
 
-import matplotlib
-
-import pandas as pd
 import torch
-from torch import nn
 import matplotlib.pyplot as plt
 from ceem.opt_criteria import *
-from ceem.ceem import CEEM
-from ceem import logger
-from delsmm.lagcrit import DELCriterion
-from delsmm.lagsys import BasicLagrangianSystem
-from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 import os
-import click
-from time import time
-import numpy as np
-
+import pytest
 from delsmm.utils import smooth_and_diff
 
 opj = os.path.join
@@ -26,7 +14,8 @@ opj = os.path.join
 torch.set_default_dtype(torch.float64)
 dtype=torch.get_default_dtype()
 
-
+@pytest.mark.skipif(not os.path.exists('./datasets/damped_dubpen_qddot.td'), 
+                    reason="requires data generation")
 def test():
 
     torch.manual_seed(1)
@@ -49,11 +38,10 @@ def test():
 
     B, T, qdim = q.shape
 
-    if False:
-        with torch.no_grad():
-            std = 0.05 * 10
-            smoothed_q, smoothed_dq, smoothed_ddq = smooth_and_diff(y,dt,2,k=4,s=std)
-
+    with torch.no_grad():
+        std = 0.05 * 10
+        smoothed_q, smoothed_dq, smoothed_ddq = smooth_and_diff(y,dt,2,k=4,s=std)
+        if False:
             for b in range(3):
                 for n in range(2):
                     plt.subplot(3,2,1+n)

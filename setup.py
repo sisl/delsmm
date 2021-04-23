@@ -7,6 +7,7 @@ test_deps = [
     "pytest",
     "autograd",
     "numdifftools",
+    "click"
 ]
 extras = {
     'test': test_deps,

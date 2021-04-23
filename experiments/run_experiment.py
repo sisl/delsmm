@@ -6,8 +6,6 @@
 Run script for training SMM models on double pendulum data.
 """
 
-import matplotlib
-
 import pandas as pd
 import torch
 from torch import nn
@@ -32,12 +30,8 @@ from torch.utils.data import TensorDataset, DataLoader
 
 opj = os.path.join
 
-import logging
 
-torch.set_default_dtype(torch.float64)
-dtype=torch.get_default_dtype()
-
-def main(seed, lr, method, noise, damped, smoketest=False):
+def run(seed, lr, method, noise, damped, smoketest=False):
     """
     Args:
         seed (int): seed
@@ -47,12 +41,14 @@ def main(seed, lr, method, noise, damped, smoketest=False):
         damped (bool): use damped pendulum data
         smoketest (bool): if smoketest, runs 2 epochs
     """
+    torch.set_default_dtype(torch.float64)
+    dtype=torch.get_default_dtype()
 
     torch.manual_seed(seed)
 
     # load the data
     dataset = 'damped_' if damped else ''
-    noisedict = {0.01:'0p01', 0.05:'0p05', 0.10: '0p10', 1.0: '1p0'}
+    noisedict = {0.01:'0p01', 0.05:'0p05', 0.10: '0p10', 0.20: '0p20', 0.30: '0p30', 0.40: '0p40', 0.50: '0p50', 1.0: '1p0'}
     dataset += 'dubpen_%s_smoothed.td' % noisedict[noise]
     dataset = './datasets/' + dataset
 
@@ -239,12 +235,22 @@ def main(seed, lr, method, noise, damped, smoketest=False):
 
         logger.dumpkvs()
 
-if __name__ == '__main__':
-    
-    noise = 0.1
+@click.command()
+@click.option('-n', '--noise', type=float, default=0.1, description="Noise setting for the experiment")
+@click.option('--parallel', type=int, default=0, description="Set > 1 for number of parallel jobs to run")
+def main(noise, parallel):
+    methods = ['qdd', 'del+logdet', 'nqqd']
+    lrs = [1e-3, 1e-2, 1e-4]
+    if parallel > 1:
+        from joblib import Parallel, delayed
+        Parallel(n_jobs=parallel)(delayed(run)(seed, lr, method, noise, damped) for method in methods for lr in lrs for damped in [False, True] for seed in range(100))
+    else:
+        for damped in [False, True]:
+            for lr in lrs:
+                for seed in range(100):
+                    for method in methods: 
+                        main(seed, lr, method, noise, damped)
 
-    for damped in [False, True]:
-        for lr in [1e-3, 1e-2, 1e-4]:
-            for seed in range(100):
-                for method in ['qdd', 'del+logdet', 'nqqd']: 
-                    main(seed, lr, method, noise, damped)
+
+if __name__ == '__main__':
+    main()    
