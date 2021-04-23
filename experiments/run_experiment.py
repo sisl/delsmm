@@ -249,7 +249,7 @@ def main(noise, parallel):
             for lr in lrs:
                 for seed in range(100):
                     for method in methods: 
-                        main(seed, lr, method, noise, damped)
+                        run(seed, lr, method, noise, damped)
 
 
 if __name__ == '__main__':
