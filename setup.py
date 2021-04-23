@@ -7,7 +7,8 @@ test_deps = [
     "pytest",
     "autograd",
     "numdifftools",
-    "click"
+    "click",
+    "pandas",
 ]
 extras = {
     'test': test_deps,
@@ -25,6 +26,7 @@ setup(
         "numpy",
         "scipy",
         "ceem>=0.0.2",
+        "pykalman>=0.9.5"
     ],
     tests_require=test_deps,
     extras_require=extras,
