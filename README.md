@@ -21,7 +21,26 @@ pip install -e '.[test]'
 - `delsmm`: contains the source code, including the `StructuredMechanicalModel` class, training criteria, and regularization criterion.
 - `examples`: contains a Jupyter notebook containing a minimal example of how to smooth data and fit an SMM to it by minimizing the discrete Euler-Lagrange residual.
 - `experiments`: contains scripts to run the experiments in the paper and plot the results.
-- `datagen`: contains scripts to generate example dat
+- `datagen`: contains scripts to generate example data
+
+## Running experiments in the paper
+
+Remember to first generate the data:
+```bash
+python datagen/generate_doublepen_data.py
+python datagen/generate_damped_doublepen_data.py
+```
+
+Also generate the smoothened data:
+```bash
+python datagen/create_smoothed_data_doublepen.py
+```
+
+Now you can run the experiments with default noise settings:
+
+```bash
+python experiments/run_experiment.py
+```
 
 ## Dependencies
 - PyTorch

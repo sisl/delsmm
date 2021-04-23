@@ -236,8 +236,8 @@ def run(seed, lr, method, noise, damped, smoketest=False):
         logger.dumpkvs()
 
 @click.command()
-@click.option('-n', '--noise', type=float, default=0.1, description="Noise setting for the experiment")
-@click.option('--parallel', type=int, default=0, description="Set > 1 for number of parallel jobs to run")
+@click.option('-n', '--noise', type=float, default=0.1, help="Noise setting for the experiment")
+@click.option('--parallel', type=int, default=0, help="Set > 1 for number of parallel jobs to run")
 def main(noise, parallel):
     methods = ['qdd', 'del+logdet', 'nqqd']
     lrs = [1e-3, 1e-2, 1e-4]
