@@ -2,25 +2,15 @@
 # test_smooth_and_diff.py
 #
 
-import matplotlib
-
-import pandas as pd
 import torch
 from torch import nn
 import matplotlib.pyplot as plt
 from ceem.opt_criteria import *
-from ceem.ceem import CEEM
-from ceem import logger
 from ceem import utils
-from delsmm.lagcrit import DELCriterion
-from delsmm.lagsys import BasicLagrangianSystem
-from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 import os
-import click
-from time import time
 import numpy as np
 
-from delsmm.utils import kalman_smooth_and_diff, 
+from delsmm.utils import kalman_smooth_and_diff
 
 
 from torch.utils.data import TensorDataset
