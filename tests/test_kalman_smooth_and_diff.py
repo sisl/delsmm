@@ -15,12 +15,15 @@ import numpy as np
 
 from delsmm.utils import kalman_smooth_and_diff
 
+import pytest
+
 opj = os.path.join
 
 torch.set_default_dtype(torch.float64)
 dtype=torch.get_default_dtype()
 
-
+@pytest.mark.skipif(not os.path.exists('./datasets/dubpen_qddot.td'), 
+                    reason="requires data generation")
 def test():
 
     torch.manual_seed(1)

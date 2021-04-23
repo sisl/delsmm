@@ -14,7 +14,7 @@ Model-based paradigms for decision-making and control are becoming ubiquitous in
 Clone `delsmm` and pip install the module.
 ```
 cd delsmm
-pip install -e .
+pip install -e '.[test]'
 ```
 
 ## Codebase Overview

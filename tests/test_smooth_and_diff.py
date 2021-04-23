@@ -3,13 +3,10 @@
 #
 
 import torch
-from torch import nn
 import matplotlib.pyplot as plt
 from ceem.opt_criteria import *
 import os
-from time import time
-import numpy as np
-
+import pytest
 from delsmm.utils import smooth_and_diff
 
 opj = os.path.join
@@ -17,7 +14,8 @@ opj = os.path.join
 torch.set_default_dtype(torch.float64)
 dtype=torch.get_default_dtype()
 
-
+@pytest.mark.skipif(not os.path.exists('./datasets/damped_dubpen_qddot.td'), 
+                    reason="requires data generation")
 def test():
 
     torch.manual_seed(1)
