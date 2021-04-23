@@ -12,6 +12,8 @@ from delsmm.systems.lag_doublepen import LagrangianDoublePendulum
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 
+plot = False
+
 def main():
 
     utils.set_rng_seed(2)
@@ -41,6 +43,11 @@ def main():
     y_p01 = (x + 0.01 * torch.randn_like(x)).detach()
     y_p05 = (x + 0.05 * torch.randn_like(x)).detach()
     y_p10 = (x + 0.1 * torch.randn_like(x)).detach()
+    y_p20 = (x + 0.2 * torch.randn_like(x)).detach()
+    y_p30 = (x + 0.3 * torch.randn_like(x)).detach()
+    y_p40 = (x + 0.4 * torch.randn_like(x)).detach()
+    y_p50 = (x + 0.5 * torch.randn_like(x)).detach()
+    y_1p0 = (x + 1.0 * torch.randn_like(x)).detach()
 
     dataset = TensorDataset(t, x, y_p01)
     torch.save(dataset, './datasets/damped_dubpen_0p01.td')
@@ -50,6 +57,22 @@ def main():
 
     dataset = TensorDataset(t, x, y_p10)
     torch.save(dataset, './datasets/damped_dubpen_0p10.td')
+
+    dataset = TensorDataset(t, x, y_p20)
+    torch.save(dataset, './datasets/damped_dubpen_0p20.td')
+
+    dataset = TensorDataset(t, x, y_p30)
+    torch.save(dataset, './datasets/damped_dubpen_0p30.td')
+
+    dataset = TensorDataset(t, x, y_p40)
+    torch.save(dataset, './datasets/damped_dubpen_0p40.td')
+
+    dataset = TensorDataset(t, x, y_p50)
+    torch.save(dataset, './datasets/damped_dubpen_0p50.td')
+
+    dataset = TensorDataset(t, x, y_1p0)
+    torch.save(dataset, './datasets/damped_dubpen_1p0.td')
+
 
     x_ = (x[:,1:] + x[:,:-1]) * 0.5
     dx = (x[:,1:] - x[:,:-1]) / dt   
@@ -61,7 +84,7 @@ def main():
     dataset = TensorDataset(t, x, dx,ddx)
     torch.save(dataset, './datasets/damped_dubpen_qddot.td')
 
-    if False:
+    if plot:
         for b in range(16):
 
             plt.subplot(8,2,b+1)
