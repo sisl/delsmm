@@ -1,5 +1,5 @@
 import torch
-from ceem4ln.lagsys import BasicLagrangianSystem
+from delsmm.lagsys import BasicLagrangianSystem
 
 def test():
 

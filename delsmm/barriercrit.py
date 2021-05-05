@@ -4,7 +4,7 @@
 
 import torch
 from ceem.opt_criteria import Criterion
-from ceem4ln.smm import AbstractStructuredMechanicalModel, AbstractLagrangianSystem
+from delsmm.smm import AbstractStructuredMechanicalModel, AbstractLagrangianSystem
 
 class MxNormBarrierCriterion(Criterion):
 

@@ -2,9 +2,9 @@
 # test_barriercrit.py
 #
 
-from ceem4ln.barriercrit import MxNormBarrierCriterion
-from ceem4ln.smm import StructuredMechanicalModel
-from ceem4ln.lagcrit import DELCriterion
+from delsmm.barriercrit import MxNormBarrierCriterion
+from delsmm.smm import StructuredMechanicalModel
+from delsmm.lagcrit import DELCriterion
 from ceem.opt_criteria import GroupCriterion
 import torch 
 

@@ -1,5 +1,5 @@
 import torch
-from ceem4ln.utils import bfill_uppertriangle, bfill_lowertriangle
+from delsmm.utils import bfill_uppertriangle, bfill_lowertriangle
 
 def test():
     A = torch.zeros(4, 10, 3, 3)

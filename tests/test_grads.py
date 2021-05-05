@@ -9,9 +9,9 @@ from torch.nn.utils import vector_to_parameters as vtp
 
 import numdifftools as nd
 
-from ceem4ln.smm import StructuredMechanicalModel
+from delsmm.smm import StructuredMechanicalModel
 
-from ceem4ln.utils import parameter_grads_to_vector
+from delsmm.utils import parameter_grads_to_vector
 
 from tqdm import tqdm
 

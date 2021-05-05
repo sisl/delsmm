@@ -3,8 +3,8 @@
 #
 
 import torch
-from ceem4ln.lagsys import BasicLagrangianSystem
-from ceem4ln.lagcrit import DELCriterion
+from delsmm.lagsys import BasicLagrangianSystem
+from delsmm.lagcrit import DELCriterion
 
 def test():
 
