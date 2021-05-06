@@ -1,10 +1,10 @@
-[Training Structured Mechanical Models by Minimizing Discrete Euler-Lagrange Residual](https://arxiv.org/abs/xxx) 
+[Training Structured Mechanical Models by Minimizing Discrete Euler-Lagrange Residual](https://arxiv.org/abs/2105.01811) 
 =======
 Kunal Menda, Jayesh K. Gupta, Zachary Manchester, Mykel J. Kochenderfer
 
 ![overall-idea.png](figs/DELSMMOverview.png)
 
-* [Paper](https://arxiv.org/abs/xxx)
+* [Paper](https://arxiv.org/abs/2105.01811)
 * [Self-Contained Tutorial](https://github.com/sisl/delsmm/blob/repoprep/examples/DoublePendulumExample.ipynb)
 
 ## Abstract
